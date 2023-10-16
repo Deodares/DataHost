@@ -12,30 +12,28 @@
   <div id="vis"></div>
   <script>
     const spec = {
-      {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {
-    "url": "https://uiuc-ischool-dataviz.github.io/fall2023-acg-acu/data/building_inventory.csv",
-    "format": {"type": "csv"}
-  },
-  "hconcat":[
-    { 
-    "mark": {"type":"point","shape":"square"},
-    "encoding": {
-      "x": {"field": "Year Acquired", "type": "quantitative"},
-      "y": {"field": "Year Constructed", "type": "quantitative"}
-    }
-  },
-  {
-      "mark": {"type": "bar", "cornerRadius": 5},
-      "encoding": {
-        "x": {"field": "Congress Dist", "type": "ordinal","sort":"ascending"},
-        "y": {"aggregate":"sum","field": "Square Footage"},
-        "color": {"value": "steelblue"}
-     }
-     }
-     ]
-     }
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "data": {
+        "url": "https://uiuc-ischool-dataviz.github.io/fall2023-acg-acu/data/building_inventory.csv",
+        "format": {"type": "csv"}
+      },
+      "hconcat":[
+        { 
+          "mark": {"type":"point","shape":"square"},
+          "encoding": {
+            "x": {"field": "Year Acquired", "type": "quantitative"},
+            "y": {"field": "Year Constructed", "type": "quantitative"}
+          }
+        },
+        {
+          "mark": {"type": "bar", "cornerRadius": 5},
+          "encoding": {
+            "x": {"field": "Congress Dist", "type": "ordinal","sort":"ascending"},
+            "y": {"aggregate":"sum","field": "Square Footage"},
+            "color": {"value": "steelblue"}
+          }
+        }
+      ]
     };
 
     vegaEmbed('#vis', spec);
